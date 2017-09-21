@@ -18,6 +18,7 @@ int main()
     head.value = 2;
     head.next = &body;
     
+    //Print all values of the linked list
     struct Node n = head;
     while (0==0) {
         printf("%i\n", n.value);

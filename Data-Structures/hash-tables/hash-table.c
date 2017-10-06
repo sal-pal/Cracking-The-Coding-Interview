@@ -1,23 +1,6 @@
-/**
- *      1) For each char in string:
- *          -Find ASCII value of char
- *              +(int)*key
- *          -Multiply ascii by char's position in string
- *          -Add it to a counter
- *      2) Modulo counter by 269
- *      3) return output of step 2
- * 
- * 
- *      Variables
- *          -transformedAscii -> The product of char's ascii value times char's index 
- *          -sum -> sum of all transformedAscii's
- *      
- * */
-
-
-
-
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 int hashFunct(char *key) {
     int sum = 0;
@@ -30,7 +13,35 @@ int hashFunct(char *key) {
     return sum % 269;
 }
 
+
+void insert(char hshTbl[][25], char key[25], char value[25]) {
+    int hash = hashFunct(key);
+    strcpy(hshTbl[hash], value);  
+}
+
+
+ char * find(char hshTbl[][25], char key[25]) {
+    int hash = hashFunct(key);
+    return hshTbl[hash];
+}
+
+
+void del(char hshTbl[][25], char key[25]) {
+    int hash = hashFunct(key);
+    strcpy(hshTbl[hash], ""); 
+}
+
+
 int main() {
-   char  string[] = "Salvatore Palomino";
-   printf("%i", hashFunct(string));
+    char hshTbl[1000][25];
+    char key[] = "key";
+    char value[] = "value";
+    
+    insert(hshTbl, key, value);
+    char *val = find(hshTbl, key);
+    printf("%s\n", val);
+    
+    del(hshTbl, key);
+    val = find(hshTbl, key);
+    printf("%s", val);
 }

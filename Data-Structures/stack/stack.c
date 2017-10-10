@@ -17,13 +17,22 @@ int peak(struct Node stack) {
     return stack.value;
 }
 
-void push(struct Node *stack) {
-    
+void push(struct Node *stack, int val) {
+     //Allocate old node to heap
+     
+     //Create a new node
+     struct Node newNode;
+     newNode.value = val;
+     newNode.next = stack;
+     
+     //Assign newNode to stack
+     
 }
 
+
 int main() {
-    struct Node stack;
-    stack = create(0);
+    //struct Node stack;
+    //stack = create(0);
     //push(*stack, 1);
-    printf("%i", peak(stack));
+    //printf("%i", peak(stack));
 }

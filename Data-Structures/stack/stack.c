@@ -23,7 +23,6 @@ void push(struct Node *stack, int val) {
      struct Node *oldNode = malloc(sizeof(struct Node));
      *oldNode = *stack;
      
-     //Create a new node
      struct Node newNode;
      newNode.value = val;
      newNode.next = oldNode;
@@ -33,10 +32,26 @@ void push(struct Node *stack, int val) {
      
 }
 
+int pop(struct Node *stack) {
+    //Place node second from top onto the top of the stack
+    *stack = *(*stack).next;
+    return (*stack).value;
+}
+
 
 int main() {
     struct Node stack;
     stack = create(0);
-    push(&stack, 1);
+    
+    //Push 100 values on the stack
+    for (int i=1; i <= 99; i++) {
+        push(&stack, i);
+    }
+    
+    //Pop 99 values from the stack
+    for (int i=0; i < 99; i++) {
+        pop(&stack);
+    }
+    
     printf("%i", peak(stack));
 }

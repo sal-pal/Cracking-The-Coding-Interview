@@ -1,6 +1,7 @@
 //Use a singly linked list to implement a stack
 
 #include<stdio.h>
+#include<stdlib.h>
 
 struct Node {
     int value;
@@ -18,21 +19,24 @@ int peak(struct Node stack) {
 }
 
 void push(struct Node *stack, int val) {
-     //Allocate old node to heap
+     //Move oldNode lower on the stack
+     struct Node *oldNode = malloc(sizeof(struct Node));
+     *oldNode = *stack;
      
      //Create a new node
      struct Node newNode;
      newNode.value = val;
-     newNode.next = stack;
+     newNode.next = oldNode;
      
-     //Assign newNode to stack
+     //Place newNode on top of stack
+     *stack = newNode;
      
 }
 
 
 int main() {
-    //struct Node stack;
-    //stack = create(0);
-    //push(*stack, 1);
-    //printf("%i", peak(stack));
+    struct Node stack;
+    stack = create(0);
+    push(&stack, 1);
+    printf("%i", peak(stack));
 }

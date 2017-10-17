@@ -2,13 +2,6 @@
 #include<stdbool.h>
 
 
-
-// 			MAKE SURE isFull RETURNS TRUE WHEN PASS FULL ARRAY
-
-
-
-
-
 int main() {
   
     const int null = -30000;
@@ -47,11 +40,25 @@ int main() {
             }
         }
         return true;
-    } 
+    }
+    
+    
+    bool isEmpty(int arr[], int arrSize) {
+        if (arrSize == 0) {
+            printf("Error: arrSize must be greater than 0");      
+        }
+        for (int i=0; i < arrSize; i++) {
+            int elem = arr[i];
+            if (elem != null) {
+                return false;
+            }
+        }
+        return true;
+    }   
     
     //Tests
     int queue[3];
     createQueue(queue, 3);
-    printf("%d", isFull(queue, 3));
+    printf("%d", isEmpty(queue, 3));
     return 0;
 }

@@ -30,14 +30,7 @@ int main() {
     
     
     bool isFull(int arr[]) {
-        //Find size of array
-        int arrInfo[2];
-        peak(arr, arrInfo);
-        int arrSize = arrInfo[1] + 1;
-        
-        if (arrSize == 0) {
-            printf("Error: arrSize must be greater than 0");
-        }
+        int arrSize = sizeof(arr) / sizeof(arr[0]);
         for (int i=0; i < arrSize; i++) {
             int elem = arr[i];
             if (elem == null) {
@@ -49,14 +42,7 @@ int main() {
     
     
     bool isEmpty(int arr[]) {
-        //Find size of array
-        int arrInfo[2];
-        peak(arr, arrInfo);
-        int arrSize = arrInfo[1] + 1;
-        
-        if (arrSize == 0) {
-            printf("Error: arrSize must be greater than 0");      
-        }
+        int arrSize = sizeof(arr) / sizeof(arr[0]);
         for (int i=0; i < arrSize; i++) {
             int elem = arr[i];
             if (elem != null) {
@@ -76,7 +62,15 @@ int main() {
             arr[0] = val;
             return;
         }
+        //Find front element's index
+        int arrInfo[2];
+        peak(arr, arrInfo);
+        int frontIndex = arrInfo[1];
         
+        for (int i=frontIndex; i >= 0; i--) {
+            arr[i+1] = arr[i];
+        }
+        arr[0] = val;
     }
     
     //Tests
@@ -84,7 +78,5 @@ int main() {
     createQueue(queue, 3);
     enqueue(queue, 1);
     enqueue(queue, 2);
-    printf("%i", queue[0]);
-    printf("%i", queue[1]);
     return 0;
 }

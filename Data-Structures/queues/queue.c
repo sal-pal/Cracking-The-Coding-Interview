@@ -29,7 +29,12 @@ int main() {
     }
     
     
-    bool isFull(int arr[], int arrSize) {
+    bool isFull(int arr[]) {
+        //Find size of array
+        int arrInfo[2];
+        peak(arr, arrInfo);
+        int arrSize = arrInfo[1] + 1;
+        
         if (arrSize == 0) {
             printf("Error: arrSize must be greater than 0");
         }
@@ -43,7 +48,12 @@ int main() {
     }
     
     
-    bool isEmpty(int arr[], int arrSize) {
+    bool isEmpty(int arr[]) {
+        //Find size of array
+        int arrInfo[2];
+        peak(arr, arrInfo);
+        int arrSize = arrInfo[1] + 1;
+        
         if (arrSize == 0) {
             printf("Error: arrSize must be greater than 0");      
         }
@@ -54,11 +64,27 @@ int main() {
             }
         }
         return true;
-    }   
+    }
+    
+    
+    void enqueue(int arr[], int val) {
+        if (isFull(arr)) {
+            printf("Error: the queue is already full");
+            return;
+        }
+        if (isEmpty(arr)) {
+            arr[0] = val;
+            return;
+        }
+        
+    }
     
     //Tests
     int queue[3];
     createQueue(queue, 3);
-    printf("%d", isEmpty(queue, 3));
+    enqueue(queue, 1);
+    enqueue(queue, 2);
+    printf("%i", queue[0]);
+    printf("%i", queue[1]);
     return 0;
 }

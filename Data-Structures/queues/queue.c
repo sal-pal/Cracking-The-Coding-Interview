@@ -3,9 +3,9 @@
 
 
 int main() {
-  
+
     const int null = -30000;
-    
+
     void peak(int queue[], int frntInfo[]) {
         int i = 0;
         while (0==0) {
@@ -17,8 +17,8 @@ int main() {
             i++;
         }
     }
-    
-    
+
+
     void createQueue(int arr[], int arrSize) {
         if (arrSize == 0) {
             printf("Error: arrSize must be greater than 0");
@@ -27,8 +27,8 @@ int main() {
             arr[i] = null;
         }
     }
-    
-    
+
+
     bool isFull(int arr[]) {
         int arrSize = sizeof(arr) / sizeof(arr[0]);
         for (int i=0; i < arrSize; i++) {
@@ -39,8 +39,8 @@ int main() {
         }
         return true;
     }
-    
-    
+
+
     bool isEmpty(int arr[]) {
         int arrSize = sizeof(arr) / sizeof(arr[0]);
         for (int i=0; i < arrSize; i++) {
@@ -51,8 +51,8 @@ int main() {
         }
         return true;
     }
-    
-    
+
+
     void enqueue(int arr[], int val) {
         if (isFull(arr)) {
             printf("Error: the queue is already full");
@@ -66,17 +66,26 @@ int main() {
         int arrInfo[2];
         peak(arr, arrInfo);
         int frontIndex = arrInfo[1];
-        
+
         for (int i=frontIndex; i >= 0; i--) {
             arr[i+1] = arr[i];
         }
         arr[0] = val;
     }
-    
-    //Tests
-    int queue[3];
-    createQueue(queue, 3);
-    enqueue(queue, 1);
-    enqueue(queue, 2);
-    return 0;
+
+
+    int dequeue(int arr[]) {
+        if (isEmpty(arr)) {
+            printf("Error in dequeue(): queue must not be empty");
+            return;
+        }
+
+        int frntInfo[2];
+        peak(arr, frntInfo);
+        int frntVal = frntInfo[0];
+        int frntIndx = frntInfo[1];
+
+        arr[frntIndx] = null;
+        return frntVal;
+    }
 }

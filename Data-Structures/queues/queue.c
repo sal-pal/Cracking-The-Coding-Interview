@@ -7,9 +7,11 @@ int main() {
     const int null = -30000;
 
     void peak(int queue[], int frntInfo[]) {
+        //Iterate through array until null is found
         int i = 0;
         while (0==0) {
             if (queue[i] == null) {
+                //Save the front value and its index
                 frntInfo[0] = queue[i-1];
                 frntInfo[1] = i-1;
                 return;
@@ -67,6 +69,7 @@ int main() {
         peak(arr, arrInfo);
         int frontIndex = arrInfo[1];
 
+        //Shift all values up one index
         for (int i=frontIndex; i >= 0; i--) {
             arr[i+1] = arr[i];
         }
@@ -80,11 +83,13 @@ int main() {
             return;
         }
 
+        //Find the queue's front element
         int frntInfo[2];
         peak(arr, frntInfo);
         int frntVal = frntInfo[0];
         int frntIndx = frntInfo[1];
 
+        //Return front value and delete it from the queue
         arr[frntIndx] = null;
         return frntVal;
     }

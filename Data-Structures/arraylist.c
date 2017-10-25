@@ -23,15 +23,30 @@
 
 **/
 #include<stdio.h>
+#include<errno.h>
+
+
+int getNewArrSize(int oldArrSize, int index) {
+  if (oldArrSize > index) {
+    perror("oldArrSize cannot be greater than index for function getNewArrSize");
+  }
+  int newArrSize = oldArrSize * 2;
+  while (newArrSize <= index) {
+    newArrSize = newArrSize + oldArrSize;
+  }
+  return newArrSize;
+}
+
 
 
 int main () {
 
-//getSizeOfNewArr() test cases
-printf("%i\n", getSizeOfNewArr(1, 2));
-printf("%i\n", getSizeOfNewArr(100, 1002));
-getSizeOfNewArr(1, 2)
+printf("%i\n", getNewArrSize(1, 2));
+printf("%i\n", getNewArrSize(100, 1002));
+getNewArrSize(2, 1);
 
+
+return 0;
 
 /**
   //insert() test cases
@@ -43,7 +58,5 @@ getSizeOfNewArr(1, 2)
   printf("%i\n", arr[14]);
   printf("%i\n", arr[24]);
   printf("%i\n", arr[98]);
-
-  return 0;
 **/
 }

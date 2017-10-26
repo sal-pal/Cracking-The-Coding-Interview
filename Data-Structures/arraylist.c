@@ -1,23 +1,3 @@
-/**
-
-    Goal: ASSIGN A NEW ARRAY TO AN ARRAY VARIABLE
-
-
-    1) if index >= array.size:
-        //Insert val after increasing array size
-        +newArrSize = getNewArrSize();
-        +create new array of size newArrSize
-        +Place all values of oldArr into newArr
-        +insert val into newArr
-    2) insert val into oldArr
-
-
-    function enlargeArr(arr, int size): void
-        1) int newArr[size]
-        2) copy arr.values to newArr
-        3) Assign newArr to variable pointed to by arr
-
-**/
 #include<stdio.h>
 #include<errno.h>
 
@@ -44,21 +24,27 @@ void enlargeArr(int arr[], int newSize) {
 }
 
 
+void insert(int arrList[], int index, int value) {
+  int arrListSize = sizeof(arrList[0]) / sizeof(arrList);
+  if (index >= arrListSize) {
+    //Insert value after arrayList size is increased
+    int newArrListSize = getNewArrSize(arrListSize, index);
+    enlargeArr(arrList, newArrListSize);
+  }
+  arrList[index] = value;
+}
+
 
 int main () {
+  //Test Cases
+  int arr[20];
+  insert(arr, 14, 15);
+  insert(arr, 24, 25);
+  insert(arr, 98, 99);
 
+  printf("%i\n", arr[14]);
+  printf("%i\n", arr[24]);
+  printf("%i\n", arr[98]);
 
-  /**
-    //insert() test cases
-    int arr[20];
-    insert(15, 14, arr);
-    insert(25, 24, arr);
-    insert(99, 98, arr);
-
-    printf("%i\n", arr[14]);
-    printf("%i\n", arr[24]);
-    printf("%i\n", arr[98]);
-  **/
-
-return 0;
+  return 0;
 }

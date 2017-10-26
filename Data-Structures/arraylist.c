@@ -1,8 +1,12 @@
 /**
+
+    Goal: ASSIGN A NEW ARRAY TO AN ARRAY VARIABLE
+
+
     1) if index >= array.size:
         //Insert val after increasing array size
         +newArrSize = getNewArrSize();
-        +create new array of size newArrSize            Create new function to increase array size
+        +create new array of size newArrSize
         +Place all values of oldArr into newArr
         +insert val into newArr
     2) insert val into oldArr
@@ -30,13 +34,13 @@ int getNewArrSize(int oldArrSize, int index) {
 }
 
 
-void enlargeArr(int arr[], int size) {
-  int newArr[size];
-  int oldArrSize = size(arr[0]) / sizeof(arr);
+void enlargeArr(int arr[], int newSize) {
+  int newArr[newSize];
+  int oldArrSize = sizeof(arr[0]) / sizeof(arr);
   for (int i=0; i < oldArrSize; i++) {
     newArr[i] = arr[i];
   }
-  *arr = newArr;
+  arr = &newArr;
 }
 
 

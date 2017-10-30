@@ -24,27 +24,11 @@ void enlargeArr(int arr[], int newSize) {
 }
 
 
-void insert(int arrList[], int index, int value) {
-  int arrListSize = sizeof(arrList[0]) / sizeof(arrList);
+void insert(int arrList[], int arrListSize, int index, int value) {
   if (index >= arrListSize) {
     //Insert value after arrayList size is increased
     int newArrListSize = getNewArrSize(arrListSize, index);
     enlargeArr(arrList, newArrListSize);
   }
   arrList[index] = value;
-}
-
-
-int main () {
-  //Test Cases
-  int arr[20];
-  insert(arr, 14, 15);
-  insert(arr, 24, 25);
-  insert(arr, 98, 99);
-
-  printf("%i\n", arr[14]);
-  printf("%i\n", arr[24]);
-  printf("%i\n", arr[98]);
-
-  return 0;
 }

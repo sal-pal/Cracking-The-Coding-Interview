@@ -7,6 +7,15 @@ struct node {
 };
 
 
+void inorder_traversal(struct node* root) {
+  if (root != NULL) {
+    inorder_traversal(root->left);
+    printf("%i", root->value);
+    inorder_traversal(root->right);
+  }
+}
+
+
 int main()
 {
     //Instantiate all nodes
@@ -24,7 +33,7 @@ int main()
     leaf3.value = 3;
     struct node leaf4;
     leaf4.value = 4;
-    
+
     //Make each node point to its subtrees
     root.left = &internal1;
     root.right = &internal2;
@@ -32,9 +41,10 @@ int main()
     internal1.right = &leaf2;
     internal2.left = &leaf3;
     internal2.right = &leaf4;
-    
-    printf("%i", root.value);
-    
-    
+
+    struct node *rootPntr = &root;
+    inorder_traversal(rootPntr);
+
+
     return 0;
 }

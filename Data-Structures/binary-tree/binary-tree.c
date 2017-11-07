@@ -16,6 +16,15 @@ void inorder_traversal(struct node* root) {
 }
 
 
+void preorder_traversal(struct node* root) {
+  if (root != NULL) {
+    printf("%i\n", root->value);
+    preorder_traversal(root->left);
+    preorder_traversal(root->right);
+  }
+}
+
+
 int main()
 {
     //Instantiate all nodes
@@ -63,7 +72,8 @@ int main()
     internal2.right = &leaf4;
 
     struct node *rootPntr = &root;
-    inorder_traversal(rootPntr);
+    //inorder_traversal(rootPntr);
+    preorder_traversal(rootPntr);
 
 
     return 0;

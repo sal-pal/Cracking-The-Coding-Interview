@@ -14,13 +14,9 @@
 - All nodes that have empty subtrees are called "leaf nodes" while all others are "internal" nodes.
 
 ## Traversal Algorithms
-### Intro
 - Traversal is a process of visiting all nodes in a tree.
 - Since nodes cannot be randomly accessed, the traversal process must always begin at the root node.
 - There are three ways to traverse a tree: in-order, pre-order, and post-order.
-
-### In-Order Traversal
-- First you visit the left subtree, then the root, then lastly the right subtree.
 
 ## Study Questions
 1. What is the anatomy of a node in a binary tree?
@@ -31,5 +27,3 @@
 6. Define what is a traversal algorithm.
 7. True or false: binary trees are randomly accessible.
 8. List the three types of traversal algorithms.
-9. The root node is checked in which order while doing an in-order traversal?
-10. Why would it be useful to use in-order traversal?

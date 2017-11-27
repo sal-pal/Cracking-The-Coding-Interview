@@ -33,6 +33,16 @@ void postorder_traversal(struct node* root) {
   }
 }
 
+void breadth_first_traverse(struct node* root) {
+  printf("%i\n", root->value);
+  if (root.left != NULL) {
+    //enqueue root.left
+  }
+  if (root.right != NULL) {
+    //enqueue root.right
+  }
+}
+
 
 int main()
 {
@@ -53,22 +63,22 @@ int main()
     internal2.right = NULL;
 
     struct node leaf1;
-    leaf1.value = 1;
+    leaf1.value = 3;
     leaf1.left = NULL;
     leaf1.right = NULL;
 
     struct node leaf2;
-    leaf2.value = 2;
+    leaf2.value = 4;
     leaf2.left = NULL;
     leaf2.right = NULL;
 
     struct node leaf3;
-    leaf3.value = 3;
+    leaf3.value = 5;
     leaf3.left = NULL;
     leaf3.right = NULL;
 
     struct node leaf4;
-    leaf4.value = 4;
+    leaf4.value = 6;
     leaf4.left = NULL;
     leaf4.right = NULL;
 
@@ -81,12 +91,7 @@ int main()
     internal2.right = &leaf4;
 
     struct node *rootPntr = &root;
-    printf("INORDER_TRAVERSAL\n");
-    inorder_traversal(rootPntr);
-    printf("PREORDER_TRAVERSAL\n");
-    preorder_traversal(rootPntr);
-    printf("POSTORDER_TRAVERSAL\n");
-    inorder_traversal(rootPntr);
+    traverse_breadth_first(rootPntr);
 
 
     return 0;

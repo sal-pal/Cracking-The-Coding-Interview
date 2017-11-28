@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "../queues/queue.h"
 
 struct node {
     int value;

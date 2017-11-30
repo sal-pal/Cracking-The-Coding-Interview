@@ -40,10 +40,14 @@ void traverse_breadth_first(struct treeNode* root) {
     enq(root->right);
   }
 
-  if (!queueIsEmpty()) {
-    //Deque and get front value
-    //print the value of treeNode
-    //enque the treeNode's children
+  while (!queueIsEmpty()) {
+    //Get the front node and print its value
+    struct treeNode *node = frontelement();
+    printf("%i\n", node->value);
+    //Enqueue node's children then dequeue node
+    enq(node->left);
+    enq(node->right);
+    deq();
   }
 }
 

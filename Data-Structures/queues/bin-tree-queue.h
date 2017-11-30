@@ -14,7 +14,7 @@ struct treeNode {
 
 struct listNode
 {
-    struct treeNode data;
+    struct treeNode *data;
     struct listNode *ptr;
 }*front,*rear,*temp,*front1;
 
@@ -29,20 +29,20 @@ void create()
 }
 
 /* Enqueing the queue */
-void enq(int data)
+void enq(struct treeNode* info)
 {
     if (rear == NULL)
     {
         rear = (struct listNode *)malloc(1*sizeof(struct listNode));
         rear->ptr = NULL;
-        rear->info = data;
+        rear->data = info;
         front = rear;
     }
     else
     {
         temp=(struct listNode *)malloc(1*sizeof(struct listNode));
         rear->ptr = temp;
-        temp->info = data;
+        temp->data = info;
         temp->ptr = NULL;
 
         rear = temp;
@@ -64,13 +64,13 @@ void deq()
         if (front1->ptr != NULL)
         {
             front1 = front1->ptr;
-            printf("\n Dequed value : %d", front->info);
+            printf("\n Dequed value : %d", front->data);
             free(front);
             front = front1;
         }
         else
         {
-            printf("\n Dequed value : %d", front->info);
+            printf("\n Dequed value : %d", front->data);
             free(front);
             front = NULL;
             rear = NULL;
@@ -79,10 +79,10 @@ void deq()
 }
 
 /* Returns the front element of queue */
-int frontelement()
+struct treeNode* frontelement()
 {
     if ((front != NULL) && (rear != NULL))
-        return(front->info);
+        return(front->data);
     else
         return 0;
 }

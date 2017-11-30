@@ -36,10 +36,10 @@ void postorder_traversal(struct node* root) {
 
 void breadth_first_traverse(struct node* root) {
   printf("%i\n", root->value);
-  if (root.left != NULL) {
+  if (root->left != NULL) {
     //enqueue root.left
   }
-  if (root.right != NULL) {
+  if (root->right != NULL) {
     //enqueue root.right
   }
 }

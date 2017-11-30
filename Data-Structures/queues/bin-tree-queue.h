@@ -86,7 +86,7 @@ struct treeNode* frontelement()
 }
 
 /* Display if queue is empty or not */
-int isEmpty()
+int queueIsEmpty()
 {
   if ((front == NULL) && (rear == NULL))
     return 1;

@@ -64,13 +64,11 @@ void deq()
         if (front1->ptr != NULL)
         {
             front1 = front1->ptr;
-            printf("\n Dequed value : %d", front->data);
             free(front);
             front = front1;
         }
         else
         {
-            printf("\n Dequed value : %d", front->data);
             free(front);
             front = NULL;
             rear = NULL;

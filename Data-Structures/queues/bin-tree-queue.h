@@ -88,10 +88,10 @@ struct treeNode* frontelement()
 }
 
 /* Display if queue is empty or not */
-void empty()
+int isEmpty()
 {
-     if ((front == NULL) && (rear == NULL))
-        printf("\n Queue empty");
-    else
-       printf("Queue not empty");
+  if ((front == NULL) && (rear == NULL))
+    return 1;
+  else
+    return 0;
 }

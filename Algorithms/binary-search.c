@@ -19,13 +19,14 @@ int binary_search(int arr[], int x, int n) {
       }
     }
   }
+  return 0;
 }
 
 
 int main() {
   int arr[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
   //Should return 11
-  int result = binary_search(arr, 2444, 25);
+  int result = binary_search(arr, 73, 25);
   printf("%i\n", result);
   return 0;
 }

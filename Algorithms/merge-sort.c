@@ -22,13 +22,20 @@ void merge(int left[], int right[], int leftSize, int rightSize, int A[]) {
     }
 }
 
+
+void mergeSort(int arr[], int arrSize) {
+  /**
+
+  **/
+}
+
+
+
 int main() {
-  int left[4] = {1,3,5,15};
-  int right[4] = {8,9,11,20};
-  int a[8];
-  merge(left, right, 4, 4, a);
+  int arr[] = {8,9,11,20,1,3,5,15}
+  mergeSort(arr);
   for (int i=0; i < 8; i++) {
-    printf("%i\n", a[i]);
+    printf("%i\n", arr[i]);
   }
   return 0;
 }

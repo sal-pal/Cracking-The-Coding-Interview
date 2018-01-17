@@ -1,7 +1,6 @@
 #include<stdio.h>
 
 void swap(int arr[], int i, int j) {
-
   int iElem = arr[i];
   int jElem = arr[j];
 
@@ -25,10 +24,22 @@ int partition(int arr[], int start, int end) {
 }
 
 
+
+int quicksort(int arr[], int start, int end) {
+  if (start >= end) {
+    return;
+  }
+  int pIndex = partition(arr, start, end);
+  quicksort(arr, start, pIndex-1);
+  quicksort(arr, pIndex+1, end);
+}
+
+
+
 int main() {
-  int arr[] = {4,3,2,1,0};
-  partition(arr, 0, 3);
-  for (int i=0; i < 5; i++) {
+  int arr[] = {6, 200, 10, 336, 21, 887, 89, 1};
+  quicksort(arr, 0, 7);
+  for (int i=0; i < 8; i++) {
     printf("%i\n", arr[i]);
   }
 }
